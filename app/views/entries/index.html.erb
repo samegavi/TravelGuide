@@ -1,0 +1,32 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Entries</h1>
+
+<div id="entries">
+<table class="table table-striped ">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Place</th>
+      <th scope="col">Topic</th>
+      <th scope="col">Title</th>
+      <th scope="col">Details</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+
+  <% @entries.each do |entry| %>
+   <tr>
+   <th scope="row"><%= entry.id%></th>
+   <th class="text-muted"><%= entry.place.title %></th>
+   <th class="text-muted"><%= entry.topic.title %></th>
+   <th class="text-muted"><%= entry.title %></th>
+   <th class="text-muted"><%= entry.body[0, 20] + '...' %></th>
+   <th><%= link_to "Show this entry", entry %></th>
+   </tr> 
+  <% end %>
+  </tbody>
+</div>
+
+<%= link_to "New entry", new_entry_path %>
